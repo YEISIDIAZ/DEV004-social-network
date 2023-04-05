@@ -1,0 +1,210 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1px;
+}
+
+ .BtnReg {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+} 
+
+
+
+
+
+#comment1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+#comment2 {
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+
+
+
+/* button:hover {
+  background-color: #066612;
+} */
+
+hr {
+  border: none;
+  height: 1px;
+  width: 100%;
+  background-color: #e20b0b;
+  margin: 3px 0;
+}
+
+
+
+
+
+p {
+  font-family: sans-serif;
+  font-size: 16px;
+  margin-bottom: 1px;
+}
+
+input {
+  font-family: sans-serif;
+  font-size: 16px;
+  margin-right: 5px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin-top: -10px;
+}
+
+.InputEmail{
+  font-family: sans-serif;
+  font-size: 16px;
+  margin-right: 1px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #cc0c0c;
+  width: 50%;
+  margin-top: 10px;
+}
+
+
+
+
+
+button[type="submit"] {
+  display: inline-block; 
+  vertical-align: middle; /* Agregamos esta propiedad para alinear verticalmente los botones */
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 10px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-right: -60px; /* Agregamos un margen derecho para separar los botones */
+  margin-left: 70px;
+  transition: all 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #4f16d3;
+  
+}
+
+.btnregistrar {
+  background-color: #4f16d3;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnregistrar:hover {
+  background-color: #ffffff;
+  color: #0a0000;
+  
+}
+
+
+
+
+
+.cuadro-con-sombra {
+  width: 600px;
+  height: 80vh; /* Usando 80vh para crear un espacio igual desde la parte superior e inferior */
+  background-image: url('../img/fondoPagina.jpg');
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin: 10vh auto; /* Usando margin para centrar verticalmente y horizontalmente el cuadro */
+}
+
+
+.logo {
+    display:block;
+    margin: 0 auto;
+    margin-top: 14px;
+    width: 80%;
+    justify-content: center; 
+}
+
+/* .container {
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  
+} */
+
+body {
+  background-image: url('../img/fondoPagina.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h2 {
+  text-align: center; /* Centrar horizontalmente el elemento */
+  color: white;
+}
+
+h1 {
+  text-align: center; /* Centrar horizontalmente el elemento */
+}
+ 
+
+
+/* form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+} */
+
+
+#loginForm {
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: none;
+} 
+
+#formRegister {
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: none;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  flex-wrap: wrap;
+} 
+
+
+
+
+
+
+
+
+
+/* .home-section {
+  max-width: 500px; 
+  margin: 0 auto;
+  text-align: center; 
+} */
