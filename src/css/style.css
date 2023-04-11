@@ -1,11 +1,199 @@
-.section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1px;
+body {
+  background-image: url('../img/fondoPagina.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
- .BtnReg {
+.cuadro-con-sombra {
+  
+  width: 600px;
+  height: 89vh; 
+  background-image: url('../img/fondoPagina.jpg');
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin: 10vh auto; 
+  
+ }
+
+@media screen and (min-width: 1700px) {
+  .cuadro-con-sombra {
+    width: 600px;
+    height: 75vh;
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    align-items: center;
+  }
+}
+
+.logo {
+  display:block;
+  margin: 0 auto;
+  margin-top: 1px;
+  width: 50%;
+  justify-content: center;  
+}
+
+ .about {
+  width: 550px;
+  height: 60px; 
+  margin: 0 auto; 
+  align-items: center;
+  margin-bottom: -30px;
+  
+} 
+
+h5 {
+  text-align: center; /* Centrar horizontalmente el elemento */
+  color: rgb(0, 0, 0);
+}
+
+.homeDiv {
+  
+  
+  margin: 0 auto; 
+  background-color: #fc8804;
+  display: flex;
+  
+}
+
+#loginForm {
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: none; 
+  margin: auto;
+  flex-direction: column; /* Agrega esta propiedad para que los elementos estén en una columna */
+  align-items: center;
+  justify-content: center; /* Agrega esta propiedad para centrar horizontalmente */
+}
+
+#formRegister {
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: none; 
+  margin: auto;
+  flex-direction: column; /* Agrega esta propiedad para que los elementos estén en una columna */
+  align-items: center;
+  justify-content: center; /* Agrega esta propiedad para centrar horizontalmente */
+}
+ 
+ 
+input {
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%; 
+ 
+  
+  
+}
+
+.inputEmail {
+  margin-bottom: 10px; /* agregas margen inferior al primer input */
+}
+.inputPassword {
+  margin-bottom: -10px; /* Cambia el margen inferior para dar espacio a los botones */
+}
+
+.inputEmailc {
+  margin-bottom: 10px; /* agregas margen inferior al primer input */
+ 
+}
+.inputPasswordc {
+  margin-bottom: 10px; /* Cambia el margen inferior para dar espacio a los botones */
+}
+
+
+
+.btnLogin, .btnGoogle {
+ 
+  width: 180px; 
+  height: 30px;
+  background-color: #5430D9;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  padding: 1px 1px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-right: 2px;
+  margin-bottom: 10px;
+  margin-inline-start: 17px;
+  
+}
+
+.btnLogin:hover {
+  background-color: #fc8804;
+  color: #000000;
+  
+}
+
+.btnGoogle{
+  margin-left: 10px;
+}
+
+.btnGoogle:hover {
+  background-color: #fc8804;
+  color: #000000;
+  
+}
+
+
+
+
+.btnregistrar {
+  width: 180px; 
+  height: 30px;
+  background-color: #D95B89;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  padding: 1px 1px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-right: 2px;
+  margin-bottom: 10px;
+  margin-inline-start: 107px;
+  
+}
+
+.btnregistrar:hover {
+  background-color: #fc8804;
+  color: #000000;
+  
+}
+
+
+
+
+
+p {
+  text-align: center; 
+  color: rgb(170, 1, 1);
+}
+
+h1 {
+  text-align: center; /* Centrar horizontalmente el elemento */
+}
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+ /* .BtnReg {
   background-color: #4CAF50; 
   border: none;
   color: white;
@@ -16,13 +204,10 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-} 
+}  */
 
 
-
-
-
-#comment1 {
+/* #comment1 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 2px;
@@ -31,7 +216,7 @@
 #comment2 {
   font-size: 18px;
   margin-bottom: 3px;
-}
+} */
 
 
 
@@ -39,36 +224,29 @@
   background-color: #066612;
 } */
 
-hr {
+/* hr {
   border: none;
   height: 1px;
   width: 100%;
   background-color: #e20b0b;
   margin: 3px 0;
-}
+} */
 
 
 
 
 
-p {
+/* p {
   font-family: sans-serif;
   font-size: 16px;
   margin-bottom: 1px;
-}
+} */
 
-input {
-  font-family: sans-serif;
-  font-size: 16px;
-  margin-right: 5px;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  width: 100%;
-  margin-top: -10px;
-}
 
-.InputEmail{
+
+
+
+/* .InputEmail{
   font-family: sans-serif;
   font-size: 16px;
   margin-right: 1px;
@@ -77,71 +255,31 @@ input {
   border: 1px solid #cc0c0c;
   width: 50%;
   margin-top: 10px;
-}
+} */
 
 
 
 
 
-button[type="submit"] {
-  display: inline-block; 
-  vertical-align: middle; /* Agregamos esta propiedad para alinear verticalmente los botones */
-  background-color: #ffffff;
-  color: #000000;
-  border-radius: 5px;
-  border: none;
-  padding: 10px 10px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 20px;
-  margin-right: -60px; /* Agregamos un margen derecho para separar los botones */
-  margin-left: 70px;
-  transition: all 0.2s ease-in-out;
-}
-
-button[type="submit"]:hover {
-  background-color: #4f16d3;
-  
-}
-
-.btnregistrar {
-  background-color: #4f16d3;
-  color: #ffffff;
-  border-radius: 5px;
-  border: none;
-  padding: 10px 20px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.btnregistrar:hover {
-  background-color: #ffffff;
-  color: #0a0000;
-  
-}
 
 
 
 
 
-.cuadro-con-sombra {
+/* .cuadro-con-sombra {
   width: 600px;
-  height: 80vh; /* Usando 80vh para crear un espacio igual desde la parte superior e inferior */
+  height: 103vh; 
   background-image: url('../img/fondoPagina.jpg');
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  margin: 10vh auto; /* Usando margin para centrar verticalmente y horizontalmente el cuadro */
-}
+  margin: 1vh auto; 
+} */
 
 
-.logo {
-    display:block;
-    margin: 0 auto;
-    margin-top: 14px;
-    width: 80%;
-    justify-content: center; 
-}
+
+
+
+
 
 /* .container {
    display: flex;
@@ -151,60 +289,5 @@ button[type="submit"]:hover {
   
 } */
 
-body {
-  background-image: url('../img/fondoPagina.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-h2 {
-  text-align: center; /* Centrar horizontalmente el elemento */
-  color: white;
-}
-
-h1 {
-  text-align: center; /* Centrar horizontalmente el elemento */
-}
- 
 
 
-/* form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-} */
-
-
-#loginForm {
-  width: 400px;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: none;
-} 
-
-#formRegister {
-  width: 400px;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: none;
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  flex-wrap: wrap;
-} 
-
-
-
-
-
-
-
-
-
-/* .home-section {
-  max-width: 500px; 
-  margin: 0 auto;
-  text-align: center; 
-} */

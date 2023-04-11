@@ -15,9 +15,3 @@ export const addRoutes = (routes) => {
     return accumulator;
   }, ROUTES);
 };
-
-/* otra forma addRoutes
-const addRoutes = (routes) => {
-  const copiaRoutes = {...ROUTES, ...routes}
-  return copiaRoutes;
-}; */

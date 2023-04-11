@@ -1,61 +1,52 @@
 import { navigate } from '../router';
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js';
-import { auth } from '../lib/firebase.js';
+
+import { createUser } from '../lib/firebase.js';
 
 export const Register = () => {
   const registerSection = document.createElement('section');
+  registerSection.className = 'section';
   const registerSectionTitle = document.createElement('h1');
   registerSectionTitle.textContent = 'Crea tu cuenta';
 
   // formulario para registrarse
   const formRegister = document.createElement('form');
   formRegister.id = 'formRegister';
-
   const textEmail = document.createElement('p');
-  textEmail.className = 'form';
   textEmail.id = 'textEmail';
-  textEmail.textContent = 'Correo electronico';
-
   const inputEmail = document.createElement('input');
-  inputEmail.className = 'InputEmail';
-  inputEmail.id = 'userEmail';
   inputEmail.type = 'email';
+  inputEmail.className = 'inputEmailc';
   inputEmail.placeholder = 'usuario@email.com';
   inputEmail.setAttribute('required', '');
 
-  const textPassword = document.createElement('p');
-  textPassword.className = 'InputPass';
-  textPassword.id = 'textPassword';
-  textPassword.textContent = 'Contraseña';
-
   const inputPassword = document.createElement('input');
-  inputPassword.className = 'InputEmail';
-  inputPassword.id = 'userPassword';
   inputPassword.type = 'password';
+  inputPassword.className = 'inputPasswordc';
   inputPassword.placeholder = 'Contraseña';
   inputPassword.setAttribute('required', '');
 
   const buttonRegister = document.createElement('button');
-  buttonRegister.className = 'BtnReg';
   buttonRegister.type = 'submit';
+  buttonRegister.className = 'btnLogin';
   buttonRegister.textContent = 'Registrarse';
 
   const btnGoBack = document.createElement('button');
-  btnGoBack.className = 'BtnReg';
-  buttonRegister.type = 'submit';
+  btnGoBack.type = 'submit';
+  btnGoBack.className = 'btnLogin';
   btnGoBack.textContent = 'Volver';
 
-  const saltolinea = document.createElement('br');
-  
+  // Mensaje de error
+  const errorMessage = document.createElement('p');
+  errorMessage.id = 'errorMessage';
 
-
-  registerSection.appendChild(registerSectionTitle);
   registerSection.appendChild(formRegister);
+  formRegister.appendChild(registerSectionTitle);
   formRegister.appendChild(inputEmail);
   formRegister.appendChild(inputPassword);
-  formRegister.appendChild(saltolinea);
+  formRegister.appendChild(errorMessage);
   formRegister.appendChild(buttonRegister);
   formRegister.appendChild(btnGoBack);
+
   // vista de los inputs
   // console.log(inputEmail.value, inputPassword.value)
 
@@ -67,21 +58,21 @@ export const Register = () => {
     // console.log(email, password)
 
     try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
-      alert('Ingreso con exito');
+      await createUser(email, password);
+      errorMessage.textContent = 'Ingreso Exitoso';
       navigate('/home');
     } catch (error) {
       // console.log(error.message)
       // console.log(error.code)     // ayuda para el if msj error.code
 
       if (error.code === 'auth/email-already-in-use') {
-        alert('Correo ya registrado');
+        errorMessage.textContent = 'El correo electrónico ya está en uso por otra cuenta.';
       } else if (error.code === 'auth/invalid-email') {
-        alert('Correo invalido');
+        errorMessage.textContent = 'El correo electrónico no es válido.';
       } else if (error.code === 'auth/weak-password') {
-        alert('Contraseña debil');
+        errorMessage.textContent = 'La contraseña debe tener al menos 6 caracteres.';
       } else if (error.code) {
-        alert('Algo salio mal');
+        errorMessage.textContent = 'Error al crear cuenta';
       }
     }
   });
