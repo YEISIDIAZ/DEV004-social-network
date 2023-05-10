@@ -2,12 +2,29 @@ body {
   background-image: url('../img/fondoPagina.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.cuadro-con-sombra {
+.postWall {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#divHome {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px;
+  font-family: Arial, sans-serif;
+}
+
+
+.section {
   
   width: 600px;
-  height: 89vh; 
+  height: 95vh; 
   background-image: url('../img/fondoPagina.jpg');
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -15,32 +32,45 @@ body {
   
  }
 
-@media screen and (min-width: 1700px) {
-  .cuadro-con-sombra {
+ @media screen and (min-width: 1700px) {
+  .section {
+  
     width: 600px;
-    height: 75vh;
-    margin-top: 15vh;
-    margin-bottom: 5vh;
-    align-items: center;
-  }
+    height: 66vh; 
+    background-image: url('../img/fondoPagina.jpg');
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin: 10vh auto; 
+    
+   }
 }
 
 .logo {
   display:block;
   margin: 0 auto;
   margin-top: 1px;
-  width: 50%;
+  width: 70%;
   justify-content: center;  
 }
 
- .about {
-  width: 550px;
-  height: 60px; 
-  margin: 0 auto; 
+.logo2 {
+  display:block;
+  margin: 0 auto;
+  margin-top: 1px;
+  width: 30%;
+  justify-content: center;  
+}
+
+
+
+
+.about {
+  display: block;
+  margin: 10px auto 0; /* Adds 50 pixels of margin to top, keeps horizontal centering */
   align-items: center;
-  margin-bottom: -30px;
-  
-} 
+}
+
+
 
 h5 {
   text-align: center; /* Centrar horizontalmente el elemento */
@@ -58,7 +88,7 @@ h5 {
 
 #loginForm {
   width: 400px;
-  padding: 20px;
+  padding: 25px;
   border-radius: 8px;
   background-color: none; 
   margin: auto;
@@ -67,19 +97,10 @@ h5 {
   justify-content: center; /* Agrega esta propiedad para centrar horizontalmente */
 }
 
-#formRegister {
-  width: 400px;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: none; 
-  margin: auto;
-  flex-direction: column; /* Agrega esta propiedad para que los elementos estén en una columna */
-  align-items: center;
-  justify-content: center; /* Agrega esta propiedad para centrar horizontalmente */
-}
- 
+
  
 input {
+  margin: 1px auto 0;
   font-family: sans-serif;
   font-size: 16px;
   padding: 8px;
@@ -92,19 +113,13 @@ input {
 }
 
 .inputEmail {
-  margin-bottom: 10px; /* agregas margen inferior al primer input */
+  margin-bottom: 1px; /* agregas margen inferior al primer input */
 }
 .inputPassword {
-  margin-bottom: -10px; /* Cambia el margen inferior para dar espacio a los botones */
+  margin-bottom: -5px; /* Cambia el margen inferior para dar espacio a los botones */
 }
 
-.inputEmailc {
-  margin-bottom: 10px; /* agregas margen inferior al primer input */
- 
-}
-.inputPasswordc {
-  margin-bottom: 10px; /* Cambia el margen inferior para dar espacio a los botones */
-}
+
 
 
 
@@ -156,8 +171,8 @@ input {
   font-size: 15px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  margin-right: 2px;
-  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-bottom: 50px;
   margin-inline-start: 107px;
   
 }
@@ -168,126 +183,238 @@ input {
   
 }
 
-
-
-
+/**************************/
 
 p {
-  text-align: center; 
-  color: rgb(170, 1, 1);
-}
-
-h1 {
-  text-align: center; /* Centrar horizontalmente el elemento */
-}
- 
-
-
-
-
-
- 
-
-
-
-
-
-
- /* .BtnReg {
-  background-color: #4CAF50; 
-  border: none;
-  color: white;
-  padding: 12px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}  */
-
-
-/* #comment1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 2px;
-}
-
-#comment2 {
-  font-size: 18px;
-  margin-bottom: 3px;
-} */
-
-
-
-/* button:hover {
-  background-color: #066612;
-} */
-
-/* hr {
-  border: none;
-  height: 1px;
-  width: 100%;
-  background-color: #e20b0b;
-  margin: 3px 0;
-} */
-
-
-
-
-
-/* p {
-  font-family: sans-serif;
-  font-size: 16px;
-  margin-bottom: 1px;
-} */
-
-
-
-
-
-/* .InputEmail{
-  font-family: sans-serif;
-  font-size: 16px;
-  margin-right: 1px;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #cc0c0c;
-  width: 50%;
-  margin-top: 10px;
-} */
-
-
-
-
-
-
-
-
-
-
-/* .cuadro-con-sombra {
-  width: 600px;
-  height: 103vh; 
-  background-image: url('../img/fondoPagina.jpg');
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  margin: 1vh auto; 
-} */
-
-
-
-
-
-
-
-/* .container {
-   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; 
+    text-align: center; 
+    color: rgb(170, 1, 1);
+  }
   
-} */
+  h1 {
+    margin: 5px auto 0;
+    text-align: center; /* Centrar horizontalmente el elemento */
+  }
+  
 
 
+  h2 {
+    color: #3a012e;
+    font-size: 26px;
+    margin: 0;
+    text-align: center;
+  }
 
+  
+  
+   .btnLogOut, .btnCreate  {
+   
+    width: 180px; 
+    height: 30px;
+    background-color: #5430D9;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    padding: 1px 1px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-right: 2px;
+    margin-bottom: 10px;
+    margin-inline-start: 17px;
+    
+  }
+
+  .btnCreate:hover {
+    background-color: #fc8804;
+    color: #000000;
+    
+  }
+  .btnLogOut:hover {
+    background-color: #fc8804;
+    color: #000000;
+    
+  }
+  
+ #loginCreate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 859px;
+  }
+
+    #loginCreate label {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+    #loginCreate input[type="text"], 
+  #loginCreate input[type="email"], 
+  #loginCreate input[type="password"] {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+   #loginCreate button {
+    background-color: #FF0080;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+#loginCreate button:hover {
+    background-color: #C80064;
+  }
+
+   /* Estilo base para todos los textareas */
+  textarea {
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  /* Estilos específicos para el textarea con id 'inputText' */
+  #inputText {
+    resize: none; /* Evita que se pueda redimensionar el textarea */
+    height: auto; /* Ancho ajustable según su contenido */
+    min-height: 80px; /* Altura mínima del textarea */
+  }
+
+   #muro {
+    list-style: none; /* Quita los bullets de la lista */
+    margin: 0;
+    padding: 0;
+  }
+
+   /* Estilo básico para cada li */
+  #muro li {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  /* Estilo específico para el primer li */
+  #muro li:first-child {
+    background-color: #e8f0fe;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Estilo específico para los enlaces dentro de los li */
+  #muro li a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  /* Estilo cuando se coloca el cursor sobre un li */
+  #muro li:hover {
+    background-color: #f7f7f7;
+  }
+  
+   nav {
+    background-color: #333; /* Color de fondo del nav */
+    color: #fff; /* Color del texto dentro del nav */
+    display: flex; /* Hace que los elementos dentro del nav se distribuyan en línea */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del nav */
+    padding: 20px; /* Añade un espacio interno de 20px alrededor del contenido del nav */
+  }
+
+    p {
+    font-size: 16px; /* Tamaño de fuente del texto */
+    /* margin: 0; Quita el margen por defecto que tienen los elementos p */
+  }
+
+  li {
+    background-color: #fff; /* Color de fondo del elemento li */
+    border: 1px solid #333; /* Borde sólido negro de 1px alrededor del elemento li */
+    list-style: none; /* Oculta el marcador de lista que aparece por defecto */
+    margin-bottom: 10px; /* Añade un margen inferior de 10px entre los elementos li */
+    padding: 10px; /* Añade un espacio interno de 10px alrededor del contenido del elemento li */
+  }
+
+  span {
+    display: inline-block; /* Hace que los elementos span se muestren como bloques en línea */
+    font-size: 16px; /* Tamaño de fuente del texto */
+    vertical-align: middle; /* Centra verticalmente los elementos span dentro del li */
+    margin-right: 10px; /* Añade un margen derecho de 10px entre los elementos span */
+  }
+
+   textarea {
+    height: 100px; /* Altura del textarea */
+    width: 100%; /* Ancho del textarea (ocupa todo el ancho disponible) */
+    padding: 5px; /* Añade un espacio interno de 5px alrededor del contenido del textarea */
+    margin-top: 10px; /* Añade un margen superior de 10px */
+    margin-bottom: 10px; /* Añade un margen inferior de 10px */
+  }
+
+    button {
+    background-color: #333; /* Color de fondo del botón */
+    border: none; /* Quita el borde por defecto del botón */
+    color: #fff; /* Color del texto dentro del botón */
+    cursor: pointer; /* Cambia el cursor al icono de una mano para indicar que es un elemento interactivo */
+    font-size: 16px; /* Tamaño de fuente del texto del botón */
+    margin-right: 10px; /* Añade un margen derecho de 10px entre los botones */
+    padding: 5px 10px; /* Añade un espacio interno de 5px arriba y abajo y de 10px a la izquierda y derecha */
+  }
+  
+    .del {
+    background-color: #f00; /* Color de fondo del elemento con clase .del (botón de eliminar) */
+    color: #fff; /* Color del texto dentro del elemento con clase .del */
+    cursor: pointer; /* Cambia el cursor al icono de una mano para indicar que es un elemento interactivo */
+    float: right; /* Hace que el elemento se muestre a la derecha */
+    font-size: 16px; /* Tamaño de fuente del texto del elemento con clase .del */
+    padding: 5px 10px; /* Añade un espacio interno de 5px arriba y abajo y de 10px a la izquierda y derecha */
+  }
+
+  .post {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .post .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .post .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .post .username {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .post .date {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .oculto {
+    display: none;
+  }
+  

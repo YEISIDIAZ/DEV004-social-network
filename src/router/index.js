@@ -5,7 +5,7 @@ export const navigate = (pathname) => {
   window.history.pushState({}, path, window.location.origin + pathname);
   const root = document.getElementById('root');
   root.innerHTML = '';
-  root.appendChild(ROUTES[pathname]());
+  root.append(ROUTES[pathname]()); // investigarr xq no appendChild
 };
 
 export const addRoutes = (routes) => {
@@ -15,3 +15,5 @@ export const addRoutes = (routes) => {
     return accumulator;
   }, ROUTES);
 };
+
+

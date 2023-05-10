@@ -4,20 +4,23 @@ import { Register } from './components/register.js';
 import { myFunction } from './lib/index.js';
 import { addRoutes, navigate } from './router/index.js';
 
-// Llamada a la función `myFunction` antes de configurar las rutas del router
+
 myFunction();
 
 addRoutes({
-  '/': Login,
-  '/register': Register,
-  '/login': Login,
-  '/home': Home,
+  '/': Login,  // si no hay ruta, redirige a login
+  '/register': Register, // si no hay ruta, redirige a login
+  '/login': Login,// si no hay ruta, redirige a login
+  '/home': Home,// si no hay ruta, redirige a login
 });
 
-window.addEventListener('popstate', () => {
-  navigate(window.location.pathname);
+
+window.addEventListener('popstate', () => { // cuando se presiona el boton de atras
+  navigate(window.location.pathname); // redirige a la ruta anterior
 });
 
-window.addEventListener('load', () => {
-  navigate(window.location.pathname);
+
+window.addEventListener('load', () => { // cuando se carga la pagina
+  navigate(window.location.pathname);  // redirige a la ruta actual
 });
+

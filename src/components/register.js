@@ -1,27 +1,37 @@
 import { navigate } from '../router';
-
 import { createUser } from '../lib/firebase.js';
 
 export const Register = () => {
+  
   const registerSection = document.createElement('section');
   registerSection.className = 'section';
+
+
+  const logo = document.createElement('img');
+  logo.src = "img/logo_sz.png"
+  logo.className = 'logo';
+    const about = document.createElement('h5');
+  about.textContent = '¿Quieres conocer el look más reciente de tu artista preferido? ¿O tal vez enterarte de los secretos detrás de su última película? ¡Aquí lo encontrarás todo! Únete a nuestra comunidad de amantes de la farándula y no te pierdas ni un solo detalle.'
+  about.className = 'about';
   const registerSectionTitle = document.createElement('h1');
   registerSectionTitle.textContent = 'Crea tu cuenta';
 
-  // formulario para registrarse
   const formRegister = document.createElement('form');
-  formRegister.id = 'formRegister';
+  formRegister.id = 'loginForm';
+
   const textEmail = document.createElement('p');
   textEmail.id = 'textEmail';
+
+
   const inputEmail = document.createElement('input');
   inputEmail.type = 'email';
-  inputEmail.className = 'inputEmailc';
+  inputEmail.className = 'inputEmail';
   inputEmail.placeholder = 'usuario@email.com';
   inputEmail.setAttribute('required', '');
 
   const inputPassword = document.createElement('input');
   inputPassword.type = 'password';
-  inputPassword.className = 'inputPasswordc';
+  inputPassword.className = 'inputPassword';
   inputPassword.placeholder = 'Contraseña';
   inputPassword.setAttribute('required', '');
 
@@ -31,15 +41,16 @@ export const Register = () => {
   buttonRegister.textContent = 'Registrarse';
 
   const btnGoBack = document.createElement('button');
-  btnGoBack.type = 'submit';
   btnGoBack.className = 'btnLogin';
   btnGoBack.textContent = 'Volver';
+  btnGoBack.classList.add('btnVolver');
 
-  // Mensaje de error
   const errorMessage = document.createElement('p');
   errorMessage.id = 'errorMessage';
 
   registerSection.appendChild(formRegister);
+  formRegister.appendChild(logo);
+  formRegister.appendChild(about);
   formRegister.appendChild(registerSectionTitle);
   formRegister.appendChild(inputEmail);
   formRegister.appendChild(inputPassword);
@@ -47,38 +58,32 @@ export const Register = () => {
   formRegister.appendChild(buttonRegister);
   formRegister.appendChild(btnGoBack);
 
-  // vista de los inputs
-  // console.log(inputEmail.value, inputPassword.value)
-
-  // Registro de usuario primera vez, auth con Firebase
-  formRegister.addEventListener('submit', async (e) => { // submit pertenece form
+  formRegister.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = inputEmail.value;
     const password = inputPassword.value;
-    // console.log(email, password)
 
     try {
       await createUser(email, password);
       errorMessage.textContent = 'Ingreso Exitoso';
       navigate('/home');
-    } catch (error) {
-      // console.log(error.message)
-      // console.log(error.code)     // ayuda para el if msj error.code
 
-      if (error.code === 'auth/email-already-in-use') {
+    } catch (error) {
+      const errorCodeAlreadyInUse = 'auth/email-already-in-use';
+      const errorCodeInvalidEmail = 'auth/invalid-email';
+      const errorCodeWeakPassword = 'auth/weak-password';
+      if (error.code === errorCodeAlreadyInUse) {
         errorMessage.textContent = 'El correo electrónico ya está en uso por otra cuenta.';
-      } else if (error.code === 'auth/invalid-email') {
+      } else if (error.code === errorCodeInvalidEmail) {
         errorMessage.textContent = 'El correo electrónico no es válido.';
-      } else if (error.code === 'auth/weak-password') {
+      } else if (error.code === errorCodeWeakPassword) {
         errorMessage.textContent = 'La contraseña debe tener al menos 6 caracteres.';
-      } else if (error.code) {
-        errorMessage.textContent = 'Error al crear cuenta';
+      } else {
+        errorMessage.textContent = 'Error al crear cuenta.';
       }
     }
   });
-
-  // Regresar a login
+  
   btnGoBack.addEventListener('click', () => navigate('/'));
-
   return registerSection;
 };

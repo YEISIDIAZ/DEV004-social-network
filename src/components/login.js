@@ -1,13 +1,31 @@
+
 import {
   loginEmail,
   loginGoogle,
 } from '../lib/firebase.js';
 
+
+
 import { navigate } from '../router';
 
+
+
+
 export const Login = () => {
-  const homeSection = document.createElement('section');
-  homeSection.className = 'section';
+
+  const homeSection = document.createElement('section'); // se crea el contenedor principal
+  homeSection.className = 'section';// se le asigna una clase
+
+  const logo = document.createElement('img'); // se crea el logo
+  logo.src = "img/logo_sz.png" // se le asigna una ruta
+  logo.className = 'logo';// se le asigna una clase
+
+  const about = document.createElement('h5');  // se crea el parrafo
+  about.textContent = '¿Quieres conocer el look más reciente de tu artista preferido? ¿O tal vez enterarte de los secretos detrás de su última película? ¡Aquí lo encontrarás todo! Únete a nuestra comunidad de amantes de la farándula y no te pierdas ni un solo detalle.'
+  about.className = 'about';
+  
+  const errorMessageEl = document.createElement('p');
+  errorMessageEl.className = 'error-message';
 
   // formulario para loguearse
 
@@ -33,7 +51,7 @@ export const Login = () => {
   const buttonLogin = document.createElement('button');
   buttonLogin.type = 'submit';
   buttonLogin.className = 'btnLogin';
-  buttonLogin.textContent = 'Ingresar';
+  buttonLogin.textContent = 'Iniciar Sesion';
   buttonLogin.class = 'BtnLogin';
 
   // Boton de login con google
@@ -42,68 +60,68 @@ export const Login = () => {
   buttonGoogle.type = 'submit';
   buttonGoogle.id = 'googleLogin';
   buttonGoogle.className = 'btnGoogle';
-  buttonGoogle.textContent = 'Inicia Sesion con Google ';
+  buttonGoogle.textContent = 'Ingresar con Google';
 
-  // Boton de crear cuenta
+  // Boton de crear cuenta o registrar usuario 
 
   const buttonRegister = document.createElement('button');
   buttonRegister.className = 'btnregistrar';
   buttonRegister.textContent = 'Crear cuenta';// Registrate
 
-  // Mensaje de error
-
-  const errorMessage = document.createElement('p');
-  errorMessage.id = 'errorMessage';
-
   // Agregando elementos al DOM
-
+ 
   homeSection.appendChild(formLogin);
+  formLogin.appendChild(logo);
+  formLogin.appendChild(about);
   formLogin.appendChild(inputEmail);
   formLogin.appendChild(inputPassword);
-  formLogin.appendChild(errorMessage);
+  formLogin.appendChild(errorMessageEl);
   formLogin.appendChild(buttonLogin);
   formLogin.appendChild(buttonGoogle);
   formLogin.appendChild(buttonRegister);
 
-  // Login con google
 
-  buttonGoogle.addEventListener('click', async (e) => {
-    e.preventDefault();
-    try {
-      await loginGoogle();
-      errorMessage.textContent = 'Bienvenidos';
-      navigate('/home');
-    } catch (error) {
-      if (error.code === 'auth/popup-closed-by-user') {
-        errorMessage.textContent = 'Ventana de inicio de sesión cerrada';
-      } else if (error.code) {
-        errorMessage.textContent = 'Error al iniciar sesión con Google';
-      }
+buttonGoogle.addEventListener('click', async (e) => {
+
+  e.preventDefault();//  cancela evento por defecto q es refrescar la pagina
+
+  try {
+    const credentials = await loginGoogle();
+    //  console.log('cred', credentials)
+    errorMessageEl.textContent = 'Bienvenidos';
+    navigate('/home');
+  } catch (error) {
+    //  console.log(error)
+    if (error.code === 'auth/popup-closed-by-user') {
+      errorMessageEl.textContent = 'Ventana de inicio de sesión cerrada';
+    } else if (error.code) {
+      errorMessageEl.textContent = 'Error al iniciar sesión con Google';
     }
-  });
+  }
+});
 
-  // Ir a Register;
+// Ir a Register;
 
   buttonRegister.addEventListener('click', () => navigate('/register'));
-
-  // Login con email
 
   formLogin.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = inputEmail.value;
     const password = inputPassword.value;
-    // vconsole.log(email, password)
+    //  console.log(email, password)
     try {
-      await loginEmail(email, password);
-      errorMessage.textContent = 'Bienvenidos';
+      const credentials = await loginEmail(email, password);
+      //  console.log('cred', credentials)
+      errorMessageEl.textContent = 'Bienvenidos';
       navigate('/home');
     } catch (error) {
+      //  console.log(error)
       if (error.code === 'auth/wrong-password') {
-        errorMessage.textContent = 'La contraseña que ingresaste es incorrecta.';
+        errorMessageEl.textContent = 'La contraseña que ingresaste es incorrecta.';
       } else if (error.code === 'auth/user-not-found') {
-        errorMessage.textContent = 'El correo electrónico que ingresaste no está conectado a una cuenta';
+        errorMessageEl.textContent = 'El correo electrónico que ingresaste no está conectado a una cuenta';
       } else {
-        errorMessage.textContent = 'El correo electrónico o número de celular que ingresaste no está conectado a una cuenta.';
+        errorMessageEl.textContent = 'El correo electrónico o número de celular que ingresaste no está conectado a una cuenta.';
       }
     }
   });
