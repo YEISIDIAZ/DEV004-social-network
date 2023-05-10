@@ -1,7 +1,3 @@
-//  import { signOut } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js';
-//  import { QuerySnapshot, doc } from 'firebase/firestore';
-/* eslint-disable no-alert */
-
 import {
   logOutUser,
   saveTextContent,
@@ -40,17 +36,21 @@ export const Home = () => {
   const inputText = document.createElement('textarea');
   inputText.classList.add('textArea');//  inputText.className='textArea'
   inputText.id = 'inputText';
-     const user = auth.currentUser;
+
+
+    const user = auth.currentUser;
     console.log (user)
     const name = user ? (user.displayName || '.') : '.';
     inputText.placeholder = `¿ Qué está pasando ${name} en el mundo de ShowZone ?`;
-    inputText.setAttribute('rows', '2');
+    inputText.setAttribute('rows', '2'); 
     inputText.setAttribute('maxLength', '450');
     inputText.setAttribute('required', '');
 
+  
   const createPub = document.createElement('button');
   createPub.textContent = 'Crear';
   createPub.id = 'btnCreate';
+
   const ul = document.createElement('ul');// revisar    
   ul.id = 'muro';
 
@@ -168,12 +168,11 @@ export const Home = () => {
       cancel.id = 'btnCancel';
       del.id = 'del';
 
-      const user = doc.data().name == null ? doc.data().email : doc.data().name;
-      //  console.log(doc.data())
+      const user = doc.data().name == null ? doc.data().email : doc.data().name; 
 
-      li.setAttribute('data-id', doc.id);
-      li.setAttribute('data-userid', doc.data().uid);
-      contEdit.setAttribute('class', 'oculto');
+      li.setAttribute('data-id', doc.id); //  para identificar cada publicación
+      li.setAttribute('data-userid', doc.data().uid); //  para identificar cada publicación
+      contEdit.setAttribute('class', 'oculto'); //  para identificar cada publicación
 
       name.textContent = user;
       cont.textContent = doc.data().content;
@@ -182,7 +181,7 @@ export const Home = () => {
       edit.textContent = 'Editar';
       save.textContent = 'Guardar ✔';
       cancel.textContent = 'Cancelar ✘';
-      del.textContent = 'x';//  signo para eliminar publicaciones
+      del.textContent = '<<x>>';//  signo para eliminar publicaciones
 
       li.appendChild(name);
       li.appendChild(cont);
@@ -191,7 +190,8 @@ export const Home = () => {
 
       //  delete y edit visible solo para user signin
 
-      if (doc.data().uid === auth.currentUser.uid) { // revisar problemas con usuario nuevo
+      if (doc.data().uid === auth.currentUser.uid) { // verifica ussuario sea dueño de la publicacion
+
         li.appendChild(del);
         li.appendChild(edit);
         li.appendChild(save);
@@ -200,6 +200,7 @@ export const Home = () => {
         save.setAttribute('class', 'oculto');
         cancel.setAttribute('class', 'oculto');
       }
+
       ul.appendChild(li);
 
       //  borrar publicacion

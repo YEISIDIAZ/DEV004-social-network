@@ -13,12 +13,14 @@ import { navigate } from '../router';
 
 export const Login = () => {
 
+// creacion elementos del DOM *******************************
+
   const homeSection = document.createElement('section'); // se crea el contenedor principal
   homeSection.className = 'section';// se le asigna una clase
 
   const logo = document.createElement('img'); // se crea el logo
   logo.src = "img/logo_sz.png" // se le asigna una ruta
-  logo.className = 'logo';// se le asigna una clase
+  logo.className = 'logo';// se le asigna una clase para css
 
   const about = document.createElement('h5');  // se crea el parrafo
   about.textContent = '¿Quieres conocer el look más reciente de tu artista preferido? ¿O tal vez enterarte de los secretos detrás de su última película? ¡Aquí lo encontrarás todo! Únete a nuestra comunidad de amantes de la farándula y no te pierdas ni un solo detalle.'
@@ -68,7 +70,9 @@ export const Login = () => {
   buttonRegister.className = 'btnregistrar';
   buttonRegister.textContent = 'Crear cuenta';// Registrate
 
-  // Agregando elementos al DOM
+  // *******************************
+
+//  se agregan los elementos al DOM para que se muestren en pantalla
  
   homeSection.appendChild(formLogin);
   formLogin.appendChild(logo);
@@ -79,6 +83,10 @@ export const Login = () => {
   formLogin.appendChild(buttonLogin);
   formLogin.appendChild(buttonGoogle);
   formLogin.appendChild(buttonRegister);
+
+  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  //  se agregan los eventos a los elementos del DOM
 
 
 buttonGoogle.addEventListener('click', async (e) => {
@@ -100,14 +108,12 @@ buttonGoogle.addEventListener('click', async (e) => {
   }
 });
 
-// Ir a Register;
 
-  buttonRegister.addEventListener('click', () => navigate('/register'));
-
+// button login
   formLogin.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = inputEmail.value;
-    const password = inputPassword.value;
+    const email = inputEmail.value; ///  se obtiene el valor del input email
+    const password = inputPassword.value; ///  se obtiene el valor del input password
     //  console.log(email, password)
     try {
       const credentials = await loginEmail(email, password);
@@ -121,10 +127,18 @@ buttonGoogle.addEventListener('click', async (e) => {
       } else if (error.code === 'auth/user-not-found') {
         errorMessageEl.textContent = 'El correo electrónico que ingresaste no está conectado a una cuenta';
       } else {
-        errorMessageEl.textContent = 'El correo electrónico o número de celular que ingresaste no está conectado a una cuenta.';
+        errorMessageEl.textContent = 'El correo electrónico que ingresaste no está conectado a una cuenta.';
       }
     }
   });
+
+  ///*** */
+
+
+  // Ir a Register;
+  buttonRegister.addEventListener('click', () => navigate('/register'));
+
+
 
   return homeSection;
 };

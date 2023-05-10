@@ -10,17 +10,17 @@ export const Register = () => {
   const logo = document.createElement('img');
   logo.src = "img/logo_sz.png"
   logo.className = 'logo';
-    const about = document.createElement('h5');
+
+
+  const about = document.createElement('h5');
   about.textContent = '¿Quieres conocer el look más reciente de tu artista preferido? ¿O tal vez enterarte de los secretos detrás de su última película? ¡Aquí lo encontrarás todo! Únete a nuestra comunidad de amantes de la farándula y no te pierdas ni un solo detalle.'
   about.className = 'about';
+
   const registerSectionTitle = document.createElement('h1');
   registerSectionTitle.textContent = 'Crea tu cuenta';
 
   const formRegister = document.createElement('form');
   formRegister.id = 'loginForm';
-
-  const textEmail = document.createElement('p');
-  textEmail.id = 'textEmail';
 
 
   const inputEmail = document.createElement('input');
@@ -48,6 +48,8 @@ export const Register = () => {
   const errorMessage = document.createElement('p');
   errorMessage.id = 'errorMessage';
 
+// motrar los elementos 
+
   registerSection.appendChild(formRegister);
   formRegister.appendChild(logo);
   formRegister.appendChild(about);
@@ -60,6 +62,7 @@ export const Register = () => {
 
   formRegister.addEventListener('submit', async (e) => {
     e.preventDefault();
+    
     const email = inputEmail.value;
     const password = inputPassword.value;
 
@@ -85,5 +88,6 @@ export const Register = () => {
   });
   
   btnGoBack.addEventListener('click', () => navigate('/'));
+
   return registerSection;
 };

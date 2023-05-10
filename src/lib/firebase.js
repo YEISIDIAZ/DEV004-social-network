@@ -48,7 +48,7 @@ export const auth = getAuth(app);
 //  para login.js
 export const loginGoogle = async () => {
   const provider = new GoogleAuthProvider(); // instancia es una clase q va a devolver un objeto
-  const credentials = await signInWithPopup(auth, provider);
+  const credentials = await signInWithPopup(auth, provider); 
   return credentials;
 };
 
